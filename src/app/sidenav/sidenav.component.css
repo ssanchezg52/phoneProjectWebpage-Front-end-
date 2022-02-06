@@ -1,0 +1,32 @@
+mat-sidenav-container{
+    height: 100vh;
+}
+
+.nav{
+    background-color: #104547;
+    width: 200px;
+    margin-top: 5vh;
+}
+
+        .containerTittleFilter{
+            border: solid 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+        }
+
+            .tittleFilter{
+                margin-top: 10px;
+            }
+
+.navIcon{
+    position: absolute;
+    height: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.containerFooter{
+    height: 10vh;
+}

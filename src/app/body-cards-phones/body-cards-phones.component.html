@@ -1,0 +1,11 @@
+<div class="phoneList">
+    <div class="searchContainer">
+        <mat-form-field appearance="fill">
+            <mat-label>Buscador</mat-label>
+            <input matInput type="text" class="buscador" style="color: black;" [(ngModel)]="_buscador" (keyup)="searchByBrand($event)">
+        </mat-form-field>
+    </div>
+
+    <app-tarjetas [_phoneListDisplayed]="phoneListDisplayed"></app-tarjetas>
+</div>
+

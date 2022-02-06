@@ -1,0 +1,27 @@
+.navTop{
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+}
+
+    .containerTittles{
+        text-align: center;
+        width: 5%;
+    }
+
+    .containerTittles:hover,.containerTittlePhoneList:hover{
+        background-color: #0B6E4F;
+        cursor: pointer;
+    }
+
+        .tittles{
+            margin-top: 3px
+        }
+
+    .containerTittlePhoneList{
+        text-align: center;
+        width: 10%;
+    }

@@ -1,0 +1,29 @@
+
+<div class="contenedorTarjetas">
+    <div *ngFor="let item of phoneListDisplayedInput" class="tarjetas">
+         <div>
+            <span class="letterStyle">{{"Modelo: "+item.brand + " "+ item.model}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Nucleos: "+ item.processor.coreNumber}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Clock rate: "+ item.processor.velocity + "Ghz"}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Ram: "+item.ram +"GB"}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Bateria: "+item.battery+ "mAh"}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Pantalla: "+item.screen+ "''"}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Antutu: "+item.antutu}}</span>
+        </div>
+        <div>
+            <span class="letterStyle">{{"Precio: "+item.prize+"€"}}</span>
+        </div>
+    </div>
+</div>

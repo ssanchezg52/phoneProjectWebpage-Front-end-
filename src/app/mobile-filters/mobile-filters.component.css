@@ -1,0 +1,31 @@
+.container-custom-slider{
+    display: flex;
+    justify-content: center;
+}
+
+.custom-slider{
+    width: 90%;
+}
+
+::ng-deep.ngx-slider-pointer {
+    width: 10px !important;
+    height: 25px !important;
+    top: -10px !important;
+    background-color: black !important;
+}
+
+::ng-deep.ngx-slider-pointer:after{
+    display: none;
+}
+
+::ng-deep.ngx-slider-selection{
+    background-color: black !important;
+}
+
+::ng-deep.ngx-slider-bubble.ngx-slider-limit {
+    color: black !important;
+}
+
+::ng-deep.ngx-slider-bubble{
+    color: white !important;
+}

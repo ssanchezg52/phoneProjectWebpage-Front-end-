@@ -1,0 +1,27 @@
+.contenedorTarjetas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+} 
+
+    .tarjetas{
+        margin-top: 2%;
+        margin-bottom: 1%;
+        margin-left: 10px;
+        border: solid 2px black;
+        width: 15%;
+        padding: 10px;
+        background-color: #073B3A;
+    }
+
+    .tarjetas:hover{
+        background-color: #0B6E4F;
+    }
+
+.mobileComparisonContainer{
+    width: 20vw;
+    background-color: black;
+    min-height: 100vh;
+}    
+
+        

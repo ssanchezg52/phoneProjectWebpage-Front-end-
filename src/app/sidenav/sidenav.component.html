@@ -1,0 +1,17 @@
+<mat-sidenav-container>
+    <mat-sidenav class="nav" (closedStart)="eventNavDisplay()"  [(opened)]="menuState" mode="push">
+        <div class="containerTittleFilter">
+            <h1 class="tittleFilter"> Filtros </h1>
+        </div>
+        <app-mobile-filters></app-mobile-filters>
+    </mat-sidenav>  
+    <mat-sidenav-content>
+        <app-nav-top></app-nav-top>
+        <img src="../../assets/img/iconMenu.png"
+             alt="icono de navegacion" class="navIcon" (click)="pruebaNav()" >
+        <app-body-cards-phones></app-body-cards-phones>
+        <div class="containerFooter">
+            <app-footer></app-footer>  
+        </div>
+    </mat-sidenav-content>   
+</mat-sidenav-container>
