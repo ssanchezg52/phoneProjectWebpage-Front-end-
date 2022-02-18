@@ -1,6 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Phone } from '../interfaces/phone';
 import { PhoneService } from '../services/phone-service.service';
+import { Response } from '../interfaces/response';
+import { PhonesIdCompareService } from '../services/phones-id-compare.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComparePhonesComponent } from '../dialog-compare-phones/dialog-compare-phones.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-body-cards-phones',
@@ -9,52 +15,62 @@ import { PhoneService } from '../services/phone-service.service';
 })
 export class BodyCardsPhonesComponent implements OnInit {
 
-  public _buscador:string = "";
-  private _phoneList:Phone[] = [];
-  private _phoneListDisplayed:Phone[] = [];
-  @Input() _display:string = "";
+  public search:string = "";
+  phoneList:Phone[] = [];
+  phoneListDisplayed$!:Observable<Response>;
+  public page:number = 0;
+  private readonly cardsLenght = 12;
 
-  constructor(private phoneService:PhoneService) {
+  constructor(private phoneService:PhoneService,private phoneIdComparatedService:PhonesIdCompareService,
+      private snackBar:MatSnackBar,private dialog:MatDialog) {
     
    }
 
   ngOnInit(): void {
-      this.getPhoneList();
+    this.getPhoneList();
   }
 
   getPhoneList() {
-    this.phoneService.getPhoneList().then(o=>o.forEach(phoneList=>{
-      this._phoneList = phoneList;
-      this._phoneListDisplayed = phoneList;
-    }))
+    this.phoneService.getPhoneListByPage(this.page,this.cardsLenght).subscribe((response)=>{
+      this.phoneList.push(...response.data.phoneListContent.content);
+    })
   }
   
   searchByBrand($event: KeyboardEvent) {
-    if (this.buscador == "") {
-      this.getPhoneList();
+    this.page = 0;
+    if (this.search == "") {
+      this.phoneService.getPhoneListByPage(this.page,this.cardsLenght).subscribe((response)=>{
+        this.phoneList = response.data.phoneListContent.content;
+      })
     }else{
-      this.phoneService.getPhoneListByBrand(this.buscador).then(e => e.forEach(phoneList=>this._phoneListDisplayed = phoneList))
+      this.phoneService.searchByBrand(this.search,this.page).subscribe((response)=>{
+        this.phoneList = response.data.phoneListContent.content;  
+      })
     }
   }
 
-  public get buscador(){
-    return this._buscador;
+  compareButtonPressed(){
+    if (this.phoneIdComparatedService.isListLenghtEqualTwo()){
+      this.dialog.open(DialogComparePhonesComponent,{
+        height: '80vh',
+        width: '80vw',
+        data: this.phoneIdComparatedService.phoneComparedId
+      })
+    }else{
+      this.snackBar.open("No se puede comparar aun, elige dos moviles",undefined,{
+        duration: 3*1000
+      })
+    }
   }
 
-  public set buscador(text:string){
-    this.buscador = text;
+  loadMoreButtonPressed(){
+    this.page++;
+    this.getPhoneListByBrand();
   }
 
-  public get phoneList(){
-    return this._phoneList;
+  getPhoneListByBrand(){
+    this.phoneService.searchByBrand(this.search,this.page).subscribe((response)=>{
+      this.phoneList.push(...response.data.phoneListContent.content);
+    })
   }
-
-  public get phoneListDisplayed(){
-    return this._phoneListDisplayed;
-  }
-
-  public set phoneListDisplayed(phoneList:Phone[]){
-    this._phoneListDisplayed = phoneList;
-  }
-
 }

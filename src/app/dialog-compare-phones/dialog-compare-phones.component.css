@@ -1,0 +1,57 @@
+.containerPhones{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 90%;
+}
+
+    .iconPhoneComparate{
+        width: 250px;
+    }
+
+    .cardsPhoneCompare{
+        text-align: center;
+    }
+
+        .containerTittle{
+            margin-top: 30px;
+        }
+
+        .containerSeparate{
+            margin-bottom: 40px;
+        }
+
+            .tittlePhone{
+                font-size: 1.7em;
+                text-decoration: underline;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            .txtDecorate{
+                font-size: 1.2em;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+    .graphContainer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .graphAndTittleContainer{
+        margin-top: 5%;
+    }
+        .graph{
+            display: flex;
+            justify-content: center;
+        }      
+    
+        .historicalPriceContainerTittle{
+            text-align: center;
+        }
+    
+            .tittleHistorical{
+                text-decoration: underline;
+                color: black;
+                font-weight: bolder;
+            }   

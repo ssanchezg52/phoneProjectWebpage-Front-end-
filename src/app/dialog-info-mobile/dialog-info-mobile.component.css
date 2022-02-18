@@ -1,0 +1,36 @@
+.flexInfoPhone{
+     display: flex;
+    align-items: center;
+}
+
+    .containerIconPhone{
+        margin-right: 10%;
+        margin-left: 5%;
+    }
+
+        .iconPhone{
+            width: 300px;
+        }
+
+    .letterStyle{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bolder;
+    }    
+
+.graphAndTittleContainer{
+    margin-top: 5%;
+}
+    .graph{
+        display: flex;
+        justify-content: center;
+    }      
+
+    .historicalPriceContainerTittle{
+        text-align: center;
+    }
+
+        .tittleHistorical{
+            text-decoration: underline;
+            color: black;
+            font-weight: bolder;
+        }

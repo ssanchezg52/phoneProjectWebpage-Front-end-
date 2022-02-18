@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { ChangeSizeNavTopAndBodyService } from '../services/change-size-nav-top-and-body.service.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,22 +8,23 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 })
 export class SidenavComponent implements OnInit {
 
-  @ViewChild('navTop') navTop:ElementRef | undefined;
+  @ViewChild("phoneListBody") phoneListBody!:ElementRef;
   public menuState:boolean = false;
+  
 
-  constructor(private render2:Renderer2) { }
+  constructor(private changeSizeNavTopAndBody:ChangeSizeNavTopAndBodyService, private render:Renderer2) { }
 
   ngOnInit(): void {
   }
 
-  eventNavDisplay() {
+  closeNav() {
     this.menuState = !this.menuState;
-    this.render2.setStyle(this.navTop?.nativeElement,"width","100%");
+    this.render.setStyle(this.phoneListBody.nativeElement,"width","100%")
   }
 
-  pruebaNav(){
+  openNav(){
     this.menuState = !this.menuState;
-    this.render2.setStyle(this.navTop?.nativeElement,"width","88%");
+    this.render.setStyle(this.phoneListBody.nativeElement,"width","88%")
   }
 
 }

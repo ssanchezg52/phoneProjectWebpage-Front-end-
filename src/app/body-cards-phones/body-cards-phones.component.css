@@ -10,6 +10,10 @@
         padding-top: 10px;
     }
 
+    ::ng-deep.mat-form-field-appearance-fill .mat-form-field-infix{
+        cursor: text;
+    }
+
     mat-form-field{
         padding: 5px;
         width: 40%;
@@ -25,4 +29,41 @@
 
     .buscador{
         caret-color: #0B6E4F;
+        color: black;
     }
+
+    .compareButton{
+        position: fixed;
+        right: 1.5%;
+        top: 10%;
+        animation-name: comparar;
+        animation-duration: 3s;
+    }
+
+    @keyframes comparar {
+        from{
+            right: -3%;
+        }
+        to{
+            right: 1.5%;
+        }
+    }
+
+    .compareButton:hover{
+        background-color: #0B6E4F;
+        cursor: pointer;
+        border: solid 0.4px black;
+        border-radius: 10px;
+        padding: 3px;
+    }
+
+        .iconCompare{
+            width: 30px;
+        }
+
+    .loadMoreButton{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        padding-bottom: 30px;
+    }    

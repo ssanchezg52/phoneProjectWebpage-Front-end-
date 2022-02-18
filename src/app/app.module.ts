@@ -18,6 +18,16 @@ import { NavTopComponent } from './nav-top/nav-top.component';
 import { FooterComponent } from './footer/footer.component';
 import { MobileFiltersComponent } from './mobile-filters/mobile-filters.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogInfoMobileComponent } from './dialog-info-mobile/dialog-info-mobile.component';
+import {MatButtonModule} from '@angular/material/button';
+import { DialogComparePhonesComponent } from './dialog-compare-phones/dialog-compare-phones.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { GraphCompareMobilesComponent } from './graph-compare-mobiles/graph-compare-mobiles.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -31,7 +41,11 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     HomeComponent,
     NavTopComponent,
     FooterComponent,
-    MobileFiltersComponent
+    MobileFiltersComponent,
+    DialogInfoMobileComponent,
+    DialogComparePhonesComponent,
+    GraphCompareMobilesComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +57,13 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     MatSidenavModule,
     MatInputModule,
     MatFormFieldModule,
-    NgxSliderModule
+    NgxSliderModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    NgxChartsModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

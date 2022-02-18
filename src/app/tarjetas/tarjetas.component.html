@@ -1,29 +1,27 @@
-
-<div class="contenedorTarjetas">
-    <div *ngFor="let item of phoneListDisplayedInput" class="tarjetas">
-         <div>
-            <span class="letterStyle">{{"Modelo: "+item.brand + " "+ item.model}}</span>
+<div class="cardContainer">
+    <div #card *ngFor="let item of phoneListDisplayed" class="card" (click)="clickCaptured(item)"> 
+        <div class="containerIzq">
+            <img src="../../assets/img/iconoMovil.png" alt="movil" class="iconPhoneCard">
         </div>
-        <div>
-            <span class="letterStyle">{{"Nucleos: "+ item.processor.coreNumber}}</span>
-        </div>
-        <div>
-            <span class="letterStyle">{{"Clock rate: "+ item.processor.velocity + "Ghz"}}</span>
-        </div>
-        <div>
-            <span class="letterStyle">{{"Ram: "+item.ram +"GB"}}</span>
-        </div>
-        <div>
-            <span class="letterStyle">{{"Bateria: "+item.battery+ "mAh"}}</span>
-        </div>
-        <div>
-            <span class="letterStyle">{{"Pantalla: "+item.screen+ "''"}}</span>
-        </div>
-        <div>
-            <span class="letterStyle">{{"Antutu: "+item.antutu}}</span>
-        </div>
-        <div>
-            <span class="letterStyle">{{"Precio: "+item.prize+"€"}}</span>
+        <div class="containerDer">
+            <div class="containerTittlePhone">
+                <span class="tittlePhone">{{item.brand + " "+ item.model}}</span>
+            </div>
+            <div class="containerPadding">
+                <span class="letterStyle">{{"Clock rate: "+ item.processor.velocity + "Ghz"}}</span>
+            </div>
+            <div class="containerPadding">
+                <span class="letterStyle">{{"Ram: "+item.ram +"GB"}}</span>
+            </div>
+            <div class="containerPadding">
+                <span class="letterStyle">{{"Precio: "+item.price+"€"}}</span>
+            </div>
+            <div class="bottomCard">
+                <div class="containerIconComparison" mat-stroked-button (click)="clickComparation($event,item)"
+                 #tooltip="matTooltip" matTooltip="Comparar" matTooltipClass="containerTooltip" class="buttonComparison">
+                    <img src="../../assets/img/iconoComparacion.png" alt="ver datos movil" class="iconPhone">
+                </div>
+            </div>
         </div>
     </div>
 </div>

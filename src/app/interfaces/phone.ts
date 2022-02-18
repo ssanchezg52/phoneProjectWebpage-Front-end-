@@ -1,3 +1,4 @@
+import { HistoricalPrice } from "./historicalPrice";
 import { Processor } from "./processor";
 
 export interface Phone {
@@ -9,5 +10,6 @@ export interface Phone {
     screen:number;
     battery:number;
     antutu:number;
-    prize:number;
+    price:number;
+    priceHistory:HistoricalPrice[];
 }

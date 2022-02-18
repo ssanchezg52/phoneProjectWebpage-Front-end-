@@ -1,0 +1,49 @@
+<mat-dialog-content>
+    <div class="containerPhones">
+        <div>
+            <img src="../../assets/img/iconoMovil.png" class="iconPhoneComparate">
+        </div>
+        <div *ngFor="let item of phonesIdCompare" class="cardsPhoneCompare">
+            <div class="containerSeparate containerTittle">
+                <span class="tittlePhone">{{item.brand+" "+item.model}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Nucleos: "+item.processor.coreNumber}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Velocidad de reloj: "+item.processor.velocity+"Ghz"}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Ram: "+item.ram+"GB"}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Pantalla: "+item.screen+"''"}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Bateria: "+item.battery+"mAh"}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Antutu: "+item.antutu}}</span>
+            </div>
+            <div class="containerSeparate">
+                <span class="txtDecorate">{{"Precio: "+item.price+"€"}}</span>
+            </div>
+        </div>
+        <div>
+            <img src="../../assets/img/iconoMovil.png" class="iconPhoneComparate">
+        </div>
+    </div>
+    <div class="graphAndTittleContainer">
+        <div class="historicalPriceContainerTittle">
+            <h1 class="tittleHistorical letterStyle">HISTORIAL DE PRECIOS</h1>
+        </div> 
+        <div class="graph">
+            <app-graph-compare-mobiles></app-graph-compare-mobiles>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button mat-button mat-dialog-close (click)="emptyListPhone()">Cerrar</button>
+</mat-dialog-actions>
+
+

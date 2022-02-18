@@ -1,11 +1,19 @@
 <div class="phoneList">
-    <div class="searchContainer">
-        <mat-form-field appearance="fill">
-            <mat-label>Buscador</mat-label>
-            <input matInput type="text" class="buscador" style="color: black;" [(ngModel)]="_buscador" (keyup)="searchByBrand($event)">
-        </mat-form-field>
+    <div>
+        <div class="searchContainer">
+            <mat-form-field appearance="fill">
+                <mat-label>Buscador por marca</mat-label>
+                <input matInput type="text" class="buscador" style="" [(ngModel)]="search" (keyup)="searchByBrand($event)">
+            </mat-form-field>
+        </div>
+        <div class="compareButton" (click)="compareButtonPressed()" #tooltip="matTooltip" 
+        matTooltip="Hacer comparacion" matTooltipClass="containerTooltip">
+            <img src="../../assets/img/logoVersus.png" alt="comparar" class="iconCompare">
+        </div>
     </div>
-
-    <app-tarjetas [_phoneListDisplayed]="phoneListDisplayed"></app-tarjetas>
+    <app-tarjetas [phoneListDisplayed]="phoneList"></app-tarjetas>
+    <div class="loadMoreButton">
+        <button mat-raised-button color="accent" (click)="loadMoreButtonPressed()">Cargar mas</button>
+    </div>
 </div>
 

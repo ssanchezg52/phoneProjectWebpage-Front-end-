@@ -20,6 +20,10 @@ mat-sidenav-container{
                 margin-top: 10px;
             }
 
+.phoneListBody{
+    background-color: #104547;
+}            
+
 .navIcon{
     position: absolute;
     height: 20px;
