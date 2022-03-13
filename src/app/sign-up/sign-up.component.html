@@ -1,0 +1,22 @@
+<div class="containerForm">
+    <form [formGroup]="profileForm">
+        <div class="containersInputs spacing">
+            <label for="username" class="tittleForm widthPassword">Usuario: </label>
+            <input id="username" class="inputs inputUsername" type="text" formControlName="username">
+        </div>
+        <div class="containersInputs spacing">
+            <label for="password" class="tittleForm widthPassword">Contraseña: </label>
+            <input id="password" class="inputs" type="password" formControlName="password">
+        </div>
+        <div class="containersInputs">
+            <label for="password" class="tittleForm widthPassword">Confirmar contraseña: </label>
+            <input id="passwordConfirm" class="inputs" type="password" formControlName="passwordConfirm">
+        </div>
+        <div class="containerButtons">
+           <input type="submit" value="Registrarse" class="buttonSizeForm buttonRegister" (click)="signUp()">
+        </div>
+        <div class="containerRedirectLogin">
+            <a routerLink="/login" class="redirectLogin" style="color: black;"><h6 style="font-weight: bold;">¿Ya tienes una cuenta? Inicia sesion aqui</h6></a>
+        </div>
+    </form>
+</div>

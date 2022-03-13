@@ -5,4 +5,15 @@
     <div class="containerTittlePhoneList" routerLink="/phoneList">
         <h3 class="tittles">Lista Moviles</h3>
     </div>
+    <div class="signInAndSignUp">
+        <div class="containerSignIn" routerLink="/login" *ngIf="!isAuthenticated()"> 
+            <h3 class="tittles">Iniciar sesion</h3>
+        </div>
+        <div class="containerSignUp" routerLink="/register" *ngIf="!isAuthenticated()"> 
+            <h3 class="tittles">Registrarse</h3>
+        </div>
+        <div class="containerLogOut" (click)="logout()" *ngIf="isAuthenticated()" > 
+            <h3 class="tittles">Cerrar sesion</h3>
+        </div>
+    </div>
 </div>

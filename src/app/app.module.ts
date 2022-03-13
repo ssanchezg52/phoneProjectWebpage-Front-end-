@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TarjetasComponent } from './tarjetas/tarjetas.component';
 import { BodyCardsPhonesComponent } from './body-cards-phones/body-cards-phones.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -28,6 +28,8 @@ import { GraphCompareMobilesComponent } from './graph-compare-mobiles/graph-comp
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DialogInfoMobileComponent,
     DialogComparePhonesComponent,
     GraphCompareMobilesComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatSnackBarModule,
     NgxChartsModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

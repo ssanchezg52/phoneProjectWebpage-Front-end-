@@ -7,6 +7,9 @@ import { PhonesIdCompareService } from '../services/phones-id-compare.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComparePhonesComponent } from '../dialog-compare-phones/dialog-compare-phones.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TokenService } from '../services/token.service';
+import { Token } from '../interfaces/token';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-body-cards-phones',
@@ -22,7 +25,7 @@ export class BodyCardsPhonesComponent implements OnInit {
   private readonly cardsLenght = 12;
 
   constructor(private phoneService:PhoneService,private phoneIdComparatedService:PhonesIdCompareService,
-      private snackBar:MatSnackBar,private dialog:MatDialog) {
+      private snackBar:MatSnackBar,private dialog:MatDialog,private tokenService:TokenService) {
     
    }
 
@@ -31,19 +34,30 @@ export class BodyCardsPhonesComponent implements OnInit {
   }
 
   getPhoneList() {
-    this.phoneService.getPhoneListByPage(this.page,this.cardsLenght).subscribe((response)=>{
-      this.phoneList.push(...response.data.phoneListContent.content);
-    })
+        this.phoneService.getPhoneListByPage(this.page,this.cardsLenght,this.tokenService.accessToken)
+        .subscribe(
+          response => {
+            this.phoneList.push(...response.data.phoneListContent.content);
+          },
+          error => {
+            this.tokenService.refreshToken();
+          }
+        )
+        setTimeout(()=>{ 
+        if (this.phoneList.length == 0){
+            this.getPhoneList();
+          };
+        },80);
   }
   
   searchByBrand($event: KeyboardEvent) {
     this.page = 0;
     if (this.search == "") {
-      this.phoneService.getPhoneListByPage(this.page,this.cardsLenght).subscribe((response)=>{
+      this.phoneService.getPhoneListByPage(this.page,this.cardsLenght,this.tokenService.accessToken).subscribe((response)=>{
         this.phoneList = response.data.phoneListContent.content;
       })
     }else{
-      this.phoneService.searchByBrand(this.search,this.page).subscribe((response)=>{
+      this.phoneService.searchByBrand(this.search,this.page,this.tokenService.accessToken).subscribe((response)=>{
         this.phoneList = response.data.phoneListContent.content;  
       })
     }
@@ -65,12 +79,17 @@ export class BodyCardsPhonesComponent implements OnInit {
 
   loadMoreButtonPressed(){
     this.page++;
-    this.getPhoneListByBrand();
+    if (this.search == ""){
+      this.getPhoneList();
+    }else{
+      this.getPhoneListByBrand();
+    }
   }
 
   getPhoneListByBrand(){
-    this.phoneService.searchByBrand(this.search,this.page).subscribe((response)=>{
+    this.phoneService.searchByBrand(this.search,this.page,this.tokenService.accessToken).subscribe((response)=>{
       this.phoneList.push(...response.data.phoneListContent.content);
     })
   }
 }
+

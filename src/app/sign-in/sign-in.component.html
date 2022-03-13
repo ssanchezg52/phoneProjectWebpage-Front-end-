@@ -1,0 +1,19 @@
+<div class="containerForm">
+    <form [formGroup]="profileForm">
+        <div class="containersInputs">
+            <label for="username" class="tittleForm spacing">Usuario: </label>
+            <input id="username" class="inputs inputUsername" type="text" formControlName="username">
+        </div>
+        <div class="containersInputs">
+            <label for="password" class="tittleForm spacing">Contraseña: </label>
+            <input id="password" class="inputs" type="password" formControlName="password">
+        </div>
+        <div class="containerButtons">
+           <input type="submit" value="Entrar" class="buttonSizeForm buttonLogin" (click)="login()"> 
+        </div>
+        <div class="containerRedirectRegister">
+            <a routerLink="/register" style="color: black;"><h6 style="font-weight: bold;">¿No tienes una cuenta? Registrate aqui</h6></a>
+        </div>
+    </form>
+</div>
+

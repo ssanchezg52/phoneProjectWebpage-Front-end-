@@ -1,5 +1,7 @@
 import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { ChangeSizeNavTopAndBodyService } from '../services/change-size-nav-top-and-body.service.service';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-nav-top',
@@ -10,7 +12,8 @@ export class NavTopComponent implements OnInit {
 
   @ViewChild('navTop') navTop:ElementRef | undefined;
 
-  constructor(private changeSizeNavTopAndBodyService:ChangeSizeNavTopAndBodyService,private render2:Renderer2) { }
+  constructor(private changeSizeNavTopAndBodyService:ChangeSizeNavTopAndBodyService,private render2:Renderer2,
+    private tokenService:TokenService,private router:Router) { }
 
   ngOnInit(): void {
     this.changeSizeNavTopAndBodyService.$emiter.subscribe(emiter=>{
@@ -24,6 +27,16 @@ export class NavTopComponent implements OnInit {
     }else{
       this.render2.setStyle(this.navTop?.nativeElement,"width","100%");
     }
+  }
+
+  isAuthenticated(){
+    return this.tokenService.authenticated;
+  }
+
+  logout(){
+    this.tokenService.logOut();
+    this.router.navigate(["/"]);
+    alert("Se ha deslogueado");
   }
 
 }

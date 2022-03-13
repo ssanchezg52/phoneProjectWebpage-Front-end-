@@ -6,6 +6,7 @@ export interface Response{
 	status:string;
 	reason:string;
 	message:string;
+	error_message:string;
 	developerMessage:string;
 	data:{phoneSpecific:Phone,phoneList?:Phone[], phoneListContent:Content}
 }

@@ -1,0 +1,64 @@
+.containerForm{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #104547;
+}
+
+    form{
+        border: 2px solid black;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #ACC3A6;
+    }
+
+    .containersInputs{
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+    }
+    
+        .spacing{
+            display: block;
+            width: 100px;
+            text-align: center;
+        }
+
+        .tittleForm{
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .inputs{
+            width: 200px;
+            height: 20px;
+        }
+
+    .buttonSizeForm{
+        width: 120px;
+        padding: 5px;
+        margin-right: 10px;
+        margin-top: 10px ;
+        font-size: 1.3em;
+    }
+
+    .containerButtons{
+        display: flex;
+        justify-content: center;
+    }
+
+        .buttonLogin{
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: lightgreen;
+            cursor: pointer;
+        }
+
+    .containerRedirectRegister{
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 15px;
+    } 

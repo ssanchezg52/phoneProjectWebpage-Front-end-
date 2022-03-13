@@ -1,35 +1,54 @@
 .navTop{
     width: 100%;
-    height: 5vh;
+    height: 6vh;
     background-color: black;
     display: flex;
     justify-content: center;
+    align-items: center;
     color: aliceblue;
 }
 
-    .containerTittles{
+    .containerTittles, .containerTittlePhoneList{
         text-align: center;
         width: 10%;
     }
 
-    .containerTittles:hover,.containerTittlePhoneList:hover{
+    .containerTittles:hover,.containerTittlePhoneList:hover,.containerSignIn:hover, .containerSignUp:hover, .containerLogOut:hover{
         background-color: #0B6E4F;
         cursor: pointer;
-        
     }
 
         .tittles{
             width: 100%;
-            height: 100%;
-            margin-top: 3px
+            height: auto;
+            text-align: center;
         }
 
         .tittles:hover{
             font-size: 15px;
         }
 
-    .containerTittlePhoneList{
-        text-align: center;
-        width: 10%;
+    .signInAndSignUp{
+        margin-left: 63vw;
+        width: 35%;
+        height: 6vh;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
+
+        .containerSignIn, .containerSignUp, .containerLogOut {
+            padding: 10px;
+            padding-top: 1%;
+            padding-bottom: 0;
+        }
+
+        .containerSignIn{
+            width: 20%;
+        }
+
+        .containerSignUp{
+            width: 15%;
+        }
 
